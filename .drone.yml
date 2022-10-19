@@ -1,9 +1,9 @@
 kind: pipeline
-name: rocker/r-ver:latest
+name: rocker/r-ubuntu:jammy
 
 steps:
 - name: build 'n check
-  image: rocker/r-ver:latest
+  image: rocker/r-ubuntu:jammy
   commands:
   - R -e 'install.packages("tinytest")'
   - R CMD build --no-build-vignettes --no-manual .
