@@ -1,10 +1,9 @@
 kind: pipeline
-type: kubernetes
-name: rhub/debian-gcc-release
+name: rocker/r-ver:latest
 
 steps:
 - name: build 'n check
-  image: rhub/debian-gcc-release
+  image: rocker/r-ver:latest
   commands:
   - R -e 'install.packages("tinytest")'
   - R CMD build --no-build-vignettes --no-manual .
