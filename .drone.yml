@@ -9,7 +9,7 @@ steps:
   - echo 'options("repos"="http://cran.rstudio.com", encoding="UTF-8")' > "/home/$USER/.Rprofile"
   - cat "${R_HOME}/etc/Rprofile.site"
   - cat "/home/$USER/.Rprofile"
-  - R -e 'install.packages("tinytest")'
+  - R -e 'install.packages("tinytest", repos="https://cloud.r-project.org")'
   - R CMD build --no-build-vignettes --no-manual .
   - FILE=$(ls -1t *.tar.gz | head -n 1)
   - export _R_CHECK_CRAN_INCOMING_=FALSE
