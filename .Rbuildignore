@@ -3,4 +3,4 @@
 ^data-raw$
 ^README\.Rmd$
 ^vignettes/Funktionalisiertes\.Rmd$
-^\.drone\.yaml$
+^\.drone\.yml$
