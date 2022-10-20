@@ -5,14 +5,7 @@ steps:
 - name: build 'n check
   image: rocker/r-ver:latest
   commands:
-  - find / -name  "Rprofile*"
-  - cat /usr/local/lib/R/etc/Rprofile.site
-  - echo 'options(repos = c(CRAN = "https://cloud.r-project.org"))' >> "${R_HOME}/etc/Rprofile.site"
-  - echo 'options("repos"="http://cran.rstudio.com", encoding="UTF-8")' > "/home/$USER/.Rprofile"
-  - echo 'options(repos = c(CRAN = "https://cloud.r-project.org"))' > /usr/local/lib/R/etc/Rprofile.site
-  - cat /usr/local/lib/R/etc/Rprofile.site
-  - cat "${R_HOME}/etc/Rprofile.site"
-  - cat "/home/$USER/.Rprofile"
+  - echo 'options(repos = c(CRAN = "https://cloud.r-project.org"))' > /usr/local/lib/R/etc/Rprofile.site   # sets a new CRAN mirror, default is too old
   - R -e 'install.packages("tinytest", repos="https://cloud.r-project.org")'
   - R CMD build --no-build-vignettes --no-manual .
   - FILE=$(ls -1t *.tar.gz | head -n 1)
